@@ -1,15 +1,17 @@
 from kivy.app import App
 from kivy.uix.button import Button
 from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.anchorlayout import AnchorLayout
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.recycleview import RecycleView
 from kivy.uix.gridlayout import GridLayout
 from kivy.core.window import Window
-from kivy.config import ConfigParser
+from kivy.config import ConfigParser, Config
 from kivy.uix.textinput import TextInput
 from kivy.uix.label import Label
 from kivy.metrics import dp
 from datetime import datetime
+from kivy.core.window import Window
 import os
 import ast
 import time
@@ -24,10 +26,18 @@ class StartScreen(Screen):
 
     def __init__(self, **kw):
         super(StartScreen, self).__init__(**kw)
-        box = BoxLayout(orientation='vertical')
-        box.add_widget(Button(background_normal=CONST_COINS_IMG, on_press=lambda x: set_screen('coins_collection')))
-        box.add_widget(Button(background_normal=CONST_PAPER_IMG, on_press=lambda x: set_screen('add_food')))
-        self.add_widget(box)
+
+        # Стартовый экран состоит из одного виджета - BoxLayout
+        top_text = Label(text="Выберите коллекцию")
+        top = BoxLayout(orientation='vertical')
+        top.add_widget(top_text)
+        grid = BoxLayout(orientation='vertical')
+        grid.add_widget(Button(background_normal=CONST_COINS_IMG, on_press=lambda x: set_screen('coins_collection')))
+        grid.add_widget(Button(background_normal=CONST_PAPER_IMG, on_press=lambda x: set_screen('add_food')))
+        common_box = BoxLayout(orientation='vertical')
+        common_box.add_widget(top)
+        common_box.add_widget(grid)
+        self.add_widget(common_box)
 
 
 # class SortedListFood(Screen):
@@ -105,8 +115,11 @@ sm.add_widget(StartScreen(name='start_menu'))
 
 
 class CoinsApp(App):
-    # def __init__(self, **kvargs):
-        # super(CoinsApp, self).__init__(**kvargs)
+    def __init__(self, **kvargs):
+        super(CoinsApp, self).__init__(**kvargs)
+
+        Window.size = (400, 650)
+        Window.top = True
         # self.config = ConfigParser()
 
     # def build_config(self, config):
