@@ -14,19 +14,22 @@ import os
 import ast
 import time
 
+# Константы
+CONST_COINS_IMG =  os.path.join(os.getcwd(), 'coins_interface', 'coins.jpg')  # Стопка монет на стартовой
+CONST_PAPER_IMG = os.path.join(os.getcwd(), 'coins_interface', 'paper.jpg')  # Стопка монет на стартовой
+
 
 class StartScreen(Screen):
+    """Стартовый экран. Выбор между просмотром коллекции монет и коллекции банкнот"""
 
     def __init__(self, **kw):
         super(StartScreen, self).__init__(**kw)
         box = BoxLayout(orientation='vertical')
-        box.add_widget(Button(background_normal='./coins_interface/start_coins.png', on_press=lambda x:set_screen('coins_collection')))
-        # box.add_widget(Button(text='Добавить блюдо в дневник питания',
-        #                       on_press=lambda x: set_screen('add_food')))
-        # self.add_widget(box)
+        box.add_widget(Button(background_normal=CONST_COINS_IMG, on_press=lambda x: set_screen('coins_collection')))
+        box.add_widget(Button(background_normal=CONST_PAPER_IMG, on_press=lambda x: set_screen('add_food')))
+        self.add_widget(box)
 
 
-#
 # class SortedListFood(Screen):
 #     def __init__(self, **kw):
 #         super(SortedListFood, self).__init__(**kw)
@@ -55,7 +58,7 @@ class StartScreen(Screen):
 #     def on_leave(self):  # Будет вызвана в момент закрытия экрана
 #
 #         self.layout.clear_widgets()  # очищаем список
-#
+
 #
 # class AddFood(Screen):
 #
@@ -89,11 +92,11 @@ class StartScreen(Screen):
 #         self.result = Label(text='')
 #         box.add_widget(self.result)
 #         self.add_widget(box)
-#
+
+
 
 def set_screen(name_screen):
     sm.current = name_screen
-
 
 sm = ScreenManager()
 sm.add_widget(StartScreen(name='start_menu'))
@@ -101,12 +104,11 @@ sm.add_widget(StartScreen(name='start_menu'))
 # sm.add_widget(AddFood(name='add_food'))
 
 
-class FoodOptionsApp(App):
-    def __init__(self, **kvargs):
-        super(FoodOptionsApp, self).__init__(**kvargs)
+class CoinsApp(App):
+    # def __init__(self, **kvargs):
+        # super(CoinsApp, self).__init__(**kvargs)
         # self.config = ConfigParser()
 
-    #
     # def build_config(self, config):
     #     config.adddefaultsection('General')
     #     config.setdefault('General', 'user_data', '{}')
@@ -115,9 +117,9 @@ class FoodOptionsApp(App):
     #     self.config.read(os.path.join(self.directory, '%(appname)s.ini'))
     #     self.user_data = ast.literal_eval(self.config.get(
     #         'General', 'user_data'))
-    #
+
     # def get_application_config(self):
-    #     return super(FoodOptionsApp, self).get_application_config(
+    #     return super(CoinsApp, self).get_application_config(
     #         '{}/%(appname)s.ini'.format(self.directory))
 
     def build(self):
@@ -125,4 +127,4 @@ class FoodOptionsApp(App):
 
 
 if __name__ == '__main__':
-    FoodOptionsApp().run()
+    CoinsApp().run()
