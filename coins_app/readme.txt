@@ -1,1 +1,1 @@
-init
+pip install kivy
