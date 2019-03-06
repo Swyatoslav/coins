@@ -28,7 +28,7 @@ class StartScreen(Screen):
         super(StartScreen, self).__init__(**kw)
 
         # Стартовый экран состоит из одного виджета - BoxLayout
-        top_text = Label(text="Выберите коллекцию", )
+        top_text = Label(text="ВЫБЕРИТЕ КОЛЛЕКЦИЮ", font_size=24)
         top = BoxLayout(orientation='vertical', size_hint=(1, .2))
         top.add_widget(top_text)
 
