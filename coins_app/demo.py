@@ -17,7 +17,7 @@ import ast
 import time
 
 # Константы
-CONST_COINS_IMG =  os.path.join(os.getcwd(), 'coins_interface', 'coins.jpg')  # Стопка монет на стартовой
+CONST_COINS_IMG = os.path.join(os.getcwd(), 'coins_interface', 'coins.jpg')  # Стопка монет на стартовой
 CONST_PAPER_IMG = os.path.join(os.getcwd(), 'coins_interface', 'paper.jpg')  # Стопка монет на стартовой
 
 
@@ -28,47 +28,69 @@ class StartScreen(Screen):
         super(StartScreen, self).__init__(**kw)
 
         # Стартовый экран состоит из одного виджета - BoxLayout
-        top_text = Label(text="Выберите коллекцию")
-        top = BoxLayout(orientation='vertical')
+        top_text = Label(text="Выберите коллекцию", )
+        top = BoxLayout(orientation='vertical', size_hint=(1, .2))
         top.add_widget(top_text)
-        grid = BoxLayout(orientation='vertical')
-        grid.add_widget(Button(background_normal=CONST_COINS_IMG, on_press=lambda x: set_screen('coins_collection')))
-        grid.add_widget(Button(background_normal=CONST_PAPER_IMG, on_press=lambda x: set_screen('add_food')))
-        common_box = BoxLayout(orientation='vertical')
-        common_box.add_widget(top)
-        common_box.add_widget(grid)
-        self.add_widget(common_box)
+
+        grid = BoxLayout(orientation='vertical', spacing=30)
+        grid.add_widget(Button(background_normal=CONST_COINS_IMG, size_hint=(.65, 1),
+                               pos_hint={'center_x': .5, 'center_y': .5},
+                               on_press=lambda x: set_screen('coins_collection')))
+
+        grid.add_widget(Button(background_normal=CONST_PAPER_IMG, size_hint=(.7, 1),
+                               pos_hint={'center_x': .5, 'center_y': .5},
+                               on_press=lambda x: set_screen('paper_collection')))
+        self.layout = BoxLayout(orientation='vertical')
+        self.layout.add_widget(top)
+        self.layout.add_widget(grid)
+        self.add_widget(self.layout)
 
 
-# class SortedListFood(Screen):
-#     def __init__(self, **kw):
-#         super(SortedListFood, self).__init__(**kw)
-#
-#     def on_enter(self):  # Будет вызвана в момент открытия экрана
-#
-#         self.layout = GridLayout(cols=1, spacing=10, size_hint_y=None)
-#         self.layout.bind(minimum_height=self.layout.setter('height'))
-#         back_button = Button(text='< Назад в главное меню',
-#                              on_press=lambda x: set_screen('menu'),
-#                              size_hint_y=None, height=dp(40))
-#         self.layout.add_widget(back_button)
-#         root = RecycleView(size_hint=(1, None), size=(Window.width,
-#                                                       Window.height))
-#         root.add_widget(self.layout)
-#         self.add_widget(root)
-#
-#         dic_foods = ast.literal_eval(
-#             App.get_running_app().config.get('General', 'user_data'))
-#
-#         for f, d in sorted(dic_foods.items(), key=lambda x: x[1]):
-#             fd = f.decode('u8') + ' ' + (datetime.fromtimestamp(d).strftime('%Y-%m-%d'))
-#             btn = Button(text=fd, size_hint_y=None, height=dp(40))
-#             self.layout.add_widget(btn)
-#
-#     def on_leave(self):  # Будет вызвана в момент закрытия экрана
-#
-#         self.layout.clear_widgets()  # очищаем список
+class CoinsCollection(Screen):
+    def __init__(self, **kw):
+        super(CoinsCollection, self).__init__(**kw)
 
+    def on_enter(self):  # Будет вызвана в момент открытия экрана
+
+        self.layout = GridLayout(cols=1, spacing=10, size_hint_y=None)
+        self.layout.bind(minimum_height=self.layout.setter('height'))
+        back_button = Button(text='< Назад к выбору коллекции',
+                             on_press=lambda x: set_screen('start_menu'),
+                             size_hint_y=None, height=dp(40))
+        self.layout.add_widget(back_button)
+        root = RecycleView(size_hint=(1, None), size=(Window.width,
+                                                      Window.height))
+        root.add_widget(self.layout)
+        self.add_widget(root)
+
+    def on_leave(self):  # Будет вызвана в момент закрытия экрана
+
+        self.layout.clear_widgets()  # очищаем список
+
+
+class PaperCollection(Screen):
+    def __init__(self, **kw):
+        super(PaperCollection, self).__init__(**kw)
+
+    def on_enter(self):  # Будет вызвана в момент открытия экрана
+
+        self.layout = GridLayout(cols=1, spacing=10, size_hint_y=None)
+        self.layout.bind(minimum_height=self.layout.setter('height'))
+        back_button = Button(text='< Назад к выбору коллекции',
+                             on_press=lambda x: set_screen('start_menu'),
+                             size_hint_y=None, height=dp(40))
+        self.layout.add_widget(back_button)
+        root = RecycleView(size_hint=(1, None), size=(Window.width,
+                                                      Window.height))
+        root.add_widget(self.layout)
+        self.add_widget(root)
+
+    def on_leave(self):  # Будет вызвана в момент закрытия экрана
+
+        self.layout.clear_widgets()  # очищаем список
+
+
+#
 #
 # class AddFood(Screen):
 #
@@ -104,13 +126,16 @@ class StartScreen(Screen):
 #         self.add_widget(box)
 
 
-
 def set_screen(name_screen):
     sm.current = name_screen
 
+
 sm = ScreenManager()
 sm.add_widget(StartScreen(name='start_menu'))
-# sm.add_widget(SortedListFood(name='coins_collection'))
+sm.add_widget(CoinsCollection(name='coins_collection'))
+sm.add_widget(PaperCollection(name='paper_collection'))
+
+
 # sm.add_widget(AddFood(name='add_food'))
 
 
@@ -119,7 +144,7 @@ class CoinsApp(App):
         super(CoinsApp, self).__init__(**kvargs)
 
         Window.size = (400, 650)
-        Window.top = True
+        Window.bottom = True
         # self.config = ConfigParser()
 
     # def build_config(self, config):
