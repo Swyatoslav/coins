@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="abf9dc9e-ef8d-45f2-916f-2e2c92a002e1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/coins_interface/coins.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/coins_interface/coins.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,7 +15,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/demo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
+            <state relative-caret-position="1785">
               <caret line="121" column="11" selection-start-line="121" selection-start-column="11" selection-end-line="121" selection-end-column="11" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
@@ -37,7 +36,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://C:/python/Lib/site-packages/kivy/uix/boxlayout.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
+            <state relative-caret-position="2618">
               <caret line="156" column="31" selection-start-line="156" selection-start-column="27" selection-end-line="156" selection-end-column="31" />
             </state>
           </provider>
@@ -46,7 +45,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://C:/python/Lib/site-packages/kivy/uix/anchorlayout.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-422">
+            <state relative-caret-position="1105">
               <caret line="66" column="8" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="8" />
             </state>
           </provider>
@@ -64,7 +63,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://C:/python/Lib/site-packages/kivy/config.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-516">
+            <state relative-caret-position="6205">
               <caret line="372" column="8" selection-start-line="372" selection-start-column="8" selection-end-line="372" selection-end-column="8" />
             </state>
           </provider>
@@ -82,7 +81,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://C:/python/Lib/site-packages/kivy/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7017">
+            <state relative-caret-position="12053">
               <caret line="723" column="8" lean-forward="true" selection-start-line="723" selection-start-column="8" selection-end-line="723" selection-end-column="8" />
             </state>
           </provider>
@@ -114,7 +113,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="960" />
     <option name="width" value="960" />
     <option name="height" value="1040" />
@@ -210,10 +209,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3614331" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17544784" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -251,9 +250,7 @@
     <entry file="file://$USER_HOME$/.PyCharmCE2018.3/system/python_stubs/-863439431/kivy/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/coins_app_env/Lib/site-packages/kivy/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/coins_app_env/Lib/site-packages/kivy/__init__.py" />
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/2and3/datetime.pyi">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -261,27 +258,6 @@
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/python/Lib/site-packages/kivy/uix/screenmanager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3417">
-          <caret line="214" column="6" selection-start-line="214" selection-start-column="6" selection-end-line="214" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/python/Lib/site-packages/kivy/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7017">
-          <caret line="723" column="8" lean-forward="true" selection-start-line="723" selection-start-column="8" selection-end-line="723" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/python/Lib/site-packages/kivy/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-516">
-          <caret line="372" column="8" selection-start-line="372" selection-start-column="8" selection-end-line="372" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -306,17 +282,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/python/Lib/site-packages/kivy/uix/anchorlayout.py">
+    <entry file="file://$PROJECT_DIR$/demo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-422">
-          <caret line="66" column="8" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="8" />
+        <state relative-caret-position="1785">
+          <caret line="121" column="11" selection-start-line="121" selection-start-column="11" selection-end-line="121" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://C:/python/Lib/site-packages/kivy/uix/boxlayout.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
+        <state relative-caret-position="2618">
           <caret line="156" column="31" selection-start-line="156" selection-start-column="27" selection-end-line="156" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/python/Lib/site-packages/kivy/uix/anchorlayout.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1105">
+          <caret line="66" column="8" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -327,13 +313,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo.py">
+    <entry file="file://C:/python/Lib/site-packages/kivy/config.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="121" column="11" selection-start-line="121" selection-start-column="11" selection-end-line="121" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="6205">
+          <caret line="372" column="8" selection-start-line="372" selection-start-column="8" selection-end-line="372" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/python/Lib/site-packages/kivy/uix/screenmanager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3417">
+          <caret line="214" column="6" selection-start-line="214" selection-start-column="6" selection-end-line="214" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/python/Lib/site-packages/kivy/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12053">
+          <caret line="723" column="8" lean-forward="true" selection-start-line="723" selection-start-column="8" selection-end-line="723" selection-end-column="8" />
         </state>
       </provider>
     </entry>
