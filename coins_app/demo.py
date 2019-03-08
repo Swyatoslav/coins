@@ -63,6 +63,7 @@ class CoinsCollection(Screen):
         root.add_widget(self.layout)
         self.add_widget(root)
 
+
     def on_leave(self):  # Будет вызвана в момент закрытия экрана
 
         self.layout.clear_widgets()  # очищаем список
