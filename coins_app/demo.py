@@ -16,9 +16,12 @@ import os
 import ast
 import time
 
-# Константы
+# Константы стартового экрана
 CONST_COINS_IMG = os.path.join(os.getcwd(), 'coins_interface', 'coins.jpg')  # Стопка монет на стартовой
 CONST_PAPER_IMG = os.path.join(os.getcwd(), 'coins_interface', 'paper.jpg')  # Стопка монет на стартовой
+
+# Констынты коллекции монет
+CONST_10R_PATH = os.path.join(os.getcwd(), 'coins_interface', '10r')
 
 
 class StartScreen(Screen):
@@ -52,17 +55,36 @@ class CoinsCollection(Screen):
 
     def on_enter(self):  # Будет вызвана в момент открытия экрана
 
-        self.layout = GridLayout(cols=1, spacing=10, size_hint_y=None)
-        self.layout.bind(minimum_height=self.layout.setter('height'))
+        self.layout = GridLayout(cols=2, spacing=10)
+
+        # todo Информацию необходимо хранить в файле, либо БД. Переписать
+        box1 = BoxLayout(orientation='vertical')
+        coin_img = Button(background_normal=os.path.join(CONST_10R_PATH, 'elec.png'))
+        coin_info = Label(text='"Города воинской славы"\nГод: 2013\nМатериал: Латунь')
+        box1.add_widget(coin_img)
+        box1.add_widget(coin_info)
+        self.layout.add_widget(box1)
+
+        box2 = BoxLayout(orientation='vertical')
+        coin_img = Button(background_normal=os.path.join(CONST_10R_PATH, 'kursk.png'))
+        coin_info = Label(text='"Города воинской славы"\nГод: 2015\nМатериал: Биметалл')
+        box2.add_widget(coin_img)
+        box2.add_widget(coin_info)
+        self.layout.add_widget(box2)
+
+        box3 = BoxLayout(orientation='vertical')
+        coin_img = Button(background_normal=os.path.join(CONST_10R_PATH, 'rjev.png'))
+        coin_info = Label(text='"Города воинской славы"\nГод: 2017\nМатериал: Золото')
+        box3.add_widget(coin_img)
+        box3.add_widget(coin_info)
+        self.layout.add_widget(box3)
+
+        # Кнопка возврата на главное меню
         back_button = Button(text='< Назад к выбору коллекции',
                              on_press=lambda x: set_screen('start_menu'),
                              size_hint_y=None, height=dp(40))
-        self.layout.add_widget(back_button)
-        root = RecycleView(size_hint=(1, None), size=(Window.width,
-                                                      Window.height))
-        root.add_widget(self.layout)
-        self.add_widget(root)
-
+        self.add_widget(self.layout)
+        self.add_widget(back_button)
 
     def on_leave(self):  # Будет вызвана в момент закрытия экрана
 

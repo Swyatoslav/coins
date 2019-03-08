@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="abf9dc9e-ef8d-45f2-916f-2e2c92a002e1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coins_interface/10r/elec.png" beforeDir="false" afterPath="$PROJECT_DIR$/coins_interface/10r/elec.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coins_interface/10r/kursk.png" beforeDir="false" afterPath="$PROJECT_DIR$/coins_interface/10r/kursk.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coins_interface/10r/rjev.png" beforeDir="false" afterPath="$PROJECT_DIR$/coins_interface/10r/rjev.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,11 +19,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/demo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="663">
-              <caret line="63" column="16" selection-start-line="63" selection-start-column="16" selection-end-line="63" selection-end-column="16" />
+            <state relative-caret-position="164">
+              <caret line="59" column="73" selection-start-line="59" selection-start-column="73" selection-end-line="59" selection-end-column="73" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://C:/python/Lib/site-packages/kivy/uix/screenmanager.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="418" selection-start-line="418" selection-end-line="418" />
             </state>
           </provider>
         </entry>
@@ -73,6 +85,17 @@
             <path>
               <item name="coins_app" type="b2602c69:ProjectViewProjectNode" />
               <item name="coins_app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="coins_app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="coins_app" type="462c0819:PsiDirectoryNode" />
+              <item name="coins_interface" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="coins_app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="coins_app" type="462c0819:PsiDirectoryNode" />
+              <item name="coins_interface" type="462c0819:PsiDirectoryNode" />
+              <item name="10r" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="coins_app" type="b2602c69:ProjectViewProjectNode" />
@@ -167,7 +190,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17544784" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17544784" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -196,7 +219,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/demo.py</url>
-          <line>148</line>
+          <line>170</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
@@ -247,16 +270,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/coins_interface/cheme_coins_collection.png">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="63" column="16" selection-start-line="63" selection-start-column="16" selection-end-line="63" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://C:/python/Lib/site-packages/kivy/uix/label.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -309,17 +322,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/python/Lib/site-packages/kivy/uix/screenmanager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19652">
-          <caret line="1169" column="13" selection-start-line="1169" selection-start-column="13" selection-end-line="1169" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/python/Lib/site-packages/kivy/app.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="12053">
           <caret line="723" column="8" selection-start-line="723" selection-start-column="8" selection-end-line="723" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/python/Lib/site-packages/kivy/uix/screenmanager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="418" selection-start-line="418" selection-end-line="418" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="59" column="73" selection-start-line="59" selection-start-column="73" selection-end-line="59" selection-end-column="73" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
