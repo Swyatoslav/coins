@@ -15,13 +15,15 @@ from kivy.core.window import Window
 import os
 import ast
 import time
+from money_data import CoinsData
 
 # Константы стартового экрана
 CONST_COINS_IMG = os.path.join(os.getcwd(), 'coins_interface', 'coins.jpg')  # Стопка монет на стартовой
 CONST_PAPER_IMG = os.path.join(os.getcwd(), 'coins_interface', 'paper.jpg')  # Стопка монет на стартовой
 
 # Констынты коллекции монет
-CONST_10R_PATH = os.path.join(os.getcwd(), 'coins_interface', '10r')
+# CONST_10R_PATH = os.path.join(os.getcwd(), 'coins_interface', 'ten_rubles')
+CONST_CURR_PATH = os.getcwd()
 
 
 class StartScreen(Screen):
@@ -57,27 +59,16 @@ class CoinsCollection(Screen):
 
         self.layout = GridLayout(cols=2, spacing=10)
 
-        # todo Информацию необходимо хранить в файле, либо БД. Переписать
-        box1 = BoxLayout(orientation='vertical')
-        coin_img = Button(background_normal=os.path.join(CONST_10R_PATH, 'elec.png'))
-        coin_info = Label(text='"Города воинской славы"\nГод: 2013\nМатериал: Латунь')
-        box1.add_widget(coin_img)
-        box1.add_widget(coin_info)
-        self.layout.add_widget(box1)
-
-        box2 = BoxLayout(orientation='vertical')
-        coin_img = Button(background_normal=os.path.join(CONST_10R_PATH, 'kursk.png'))
-        coin_info = Label(text='"Города воинской славы"\nГод: 2015\nМатериал: Биметалл')
-        box2.add_widget(coin_img)
-        box2.add_widget(coin_info)
-        self.layout.add_widget(box2)
-
-        box3 = BoxLayout(orientation='vertical')
-        coin_img = Button(background_normal=os.path.join(CONST_10R_PATH, 'rjev.png'))
-        coin_info = Label(text='"Города воинской славы"\nГод: 2017\nМатериал: Золото')
-        box3.add_widget(coin_img)
-        box3.add_widget(coin_info)
-        self.layout.add_widget(box3)
+        start_time = time.time()
+        coin_db = CoinsData()
+        all_coins = coin_db.get_coins_info()
+        for coin in all_coins:
+            coin_box = BoxLayout(orientation='vertical')
+            coin_img = Button(background_normal=os.path.join(CONST_CURR_PATH, coin['img_path']))
+            coin_info = Label(text='Серия: {}\nГод: {}\nСтрана: {}'.format(coin['seria'], coin['year'], coin['country']))
+            coin_box.add_widget(coin_img)
+            coin_box.add_widget(coin_info)
+            self.layout.add_widget(coin_box)
 
         # Кнопка возврата на главное меню
         back_button = Button(text='< Назад к выбору коллекции',
@@ -85,6 +76,9 @@ class CoinsCollection(Screen):
                              size_hint_y=None, height=dp(40))
         self.add_widget(self.layout)
         self.add_widget(back_button)
+
+        my_time = time.time() - start_time
+        print('Время отрисовки коллекции: %.3f' % my_time)
 
     def on_leave(self):  # Будет вызвана в момент закрытия экрана
 
