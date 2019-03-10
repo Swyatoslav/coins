@@ -16,6 +16,7 @@ import os
 import ast
 import time
 from money_data import CoinsData
+from kivy.uix.scrollview import ScrollView
 
 # Константы стартового экрана
 CONST_COINS_IMG = os.path.join(os.getcwd(), 'coins_interface', 'coins.jpg')  # Стопка монет на стартовой
@@ -57,15 +58,17 @@ class CoinsCollection(Screen):
 
     def on_enter(self):  # Будет вызвана в момент открытия экрана
 
-        self.layout = GridLayout(cols=2, spacing=10)
+        self.layout = GridLayout(cols=2, size_hint_y=None)
+        self.layout.bind(minimum_height=self.layout.setter('height'))
 
-        start_time = time.time()
         coin_db = CoinsData()
         all_coins = coin_db.get_coins_info()
         for coin in all_coins:
-            coin_box = BoxLayout(orientation='vertical')
-            coin_img = Button(background_normal=os.path.join(CONST_CURR_PATH, coin['img_path']))
-            coin_info = Label(text='Серия: {}\nГод: {}\nСтрана: {}'.format(coin['seria'], coin['year'], coin['country']))
+            coin_box = BoxLayout(orientation='vertical', size_hint_y=None)
+            coin_img = Button(background_normal=os.path.join(CONST_CURR_PATH, coin['img_path']), size_hint=(0.6, None))
+            coin_info = Label(
+                text='Серия: {}\nГод: {}\nСтрана: {}'.format(coin['seria'], coin['year'], coin['country']),
+                font_size=10)
             coin_box.add_widget(coin_img)
             coin_box.add_widget(coin_info)
             self.layout.add_widget(coin_box)
@@ -73,15 +76,17 @@ class CoinsCollection(Screen):
         # Кнопка возврата на главное меню
         back_button = Button(text='< Назад к выбору коллекции',
                              on_press=lambda x: set_screen('start_menu'),
-                             size_hint_y=None, height=dp(40))
-        self.add_widget(self.layout)
+                             size_hint_y=None, height=40)
+
+        add_button = Button(text=' + ', on_press=lambda x: set_screen('add_coin'),
+                            size_hint_y=None, height=40)
+
+        scroll = ScrollView(size_hint=(1, None), size=(Window.width, Window.height))
+        scroll.add_widget(self.layout)
+        self.add_widget(scroll)
         self.add_widget(back_button)
 
-        my_time = time.time() - start_time
-        print('Время отрисовки коллекции: %.3f' % my_time)
-
     def on_leave(self):  # Будет вызвана в момент закрытия экрана
-
         self.layout.clear_widgets()  # очищаем список
 
 
@@ -160,7 +165,7 @@ class CoinsApp(App):
     def __init__(self, **kvargs):
         super(CoinsApp, self).__init__(**kvargs)
 
-        Window.size = (400, 650)
+        Window.size = (320, 600)
         Window.bottom = True
         # self.config = ConfigParser()
 
