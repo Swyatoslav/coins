@@ -74,7 +74,7 @@ class CoinsCollection(Screen):
             self.layout.add_widget(coin_box)
 
         # Кнопка возврата на главное меню
-        back_button = Button(text='< Назад к выбору коллекции',
+        back_button = Button(text='ДОМОЙ',
                              on_press=lambda x: set_screen('start_menu'),
                              size_hint_y=None, height=40)
 
@@ -84,7 +84,10 @@ class CoinsCollection(Screen):
         scroll = ScrollView(size_hint=(1, None), size=(Window.width, Window.height))
         scroll.add_widget(self.layout)
         self.add_widget(scroll)
-        self.add_widget(back_button)
+        menu = BoxLayout(orientation='horizontal', size_hint_y=None)
+        menu.add_widget(back_button)
+        menu.add_widget(add_button)
+        self.add_widget(menu)
 
     def on_leave(self):  # Будет вызвана в момент закрытия экрана
         self.layout.clear_widgets()  # очищаем список
@@ -111,6 +114,23 @@ class PaperCollection(Screen):
 
         self.layout.clear_widgets()  # очищаем список
 
+
+class AddCoin(Screen):
+    """Класс для добавления новых монет"""
+
+    def __init__(self, **kw):
+        super(AddCoin, self).__init__(**kw)
+
+    def on_enter(self):
+
+        self.layout = BoxLayout(orientation='vertical')
+        top_text = Label(text="Для добавления монеты\n         заполните поля", font_size=16)
+        back_button = Button(text='< Назад к коллекции монет',
+                             on_press=lambda x: set_screen('coins_collection'),
+                             size_hint_y=None, height=dp(40))
+        self.layout.add_widget(top_text)
+        self.layout.add_widget(back_button)
+        self.add_widget(self.layout)
 
 #
 #
@@ -156,9 +176,7 @@ sm = ScreenManager()
 sm.add_widget(StartScreen(name='start_menu'))
 sm.add_widget(CoinsCollection(name='coins_collection'))
 sm.add_widget(PaperCollection(name='paper_collection'))
-
-
-# sm.add_widget(AddFood(name='add_food'))
+sm.add_widget(AddCoin(name='add_coin'))
 
 
 class CoinsApp(App):

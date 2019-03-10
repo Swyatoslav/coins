@@ -6,31 +6,75 @@ class CoinsData:
 
     con = lite.connect('test.db')
 
-    def __init__(self):
-        with self.con:
-            cur = self.con.cursor()
-            cur.execute("DROP TABLE IF EXISTS coins")
-            cur.execute("CREATE TABLE coins("   # Таблица для работы с монетами
-                        "id INT, "              # id монеты - отсчет с 0
-                        "nominal INT, "         # номинал монеты
-                        "currency TEXT, "       # Валюта (Р, $, и тд)
-                        "year INT, "            # Год выпуска
-                        "country TEXT, "        # Страна выпуска
-                        "seria TEXT, "          # Серия
-                        "model TEXT, "          # Название в серии
-                        "img_path TEXT)"        # Относительный путь до изображения монеты
-                        )
-
-            cur.execute(
-                """INSERT INTO coins VALUES (0, 10, 'Р', 2015, 'Россия', 'Города воинской славы', 'Елец', (?))""",
-                [r'coins_interface\ten_rubles\elec.png'])
-            cur.execute(
-                """INSERT INTO coins VALUES (1, 10, 'Р', 2013, 'Россия', 'Города воинской славы', 'Курск', (?))""",
-                [r'coins_interface\ten_rubles\kursk.png'])
-            cur.execute(
-                """INSERT INTO coins VALUES (2, 10, 'Р', 2018, 'Россия', 'Города воинской славы', 'Ржев', (?))""",
-                [r'coins_interface\ten_rubles\rjev.png'])
-            self.con.commit()
+    # def __init__(self):
+    #     with self.con:
+    #         cur = self.con.cursor()
+    #         cur.execute("DROP TABLE IF EXISTS coins")
+    #         cur.execute("CREATE TABLE coins("   # Таблица для работы с монетами
+    #                     "id INT, "              # id монеты - отсчет с 0
+    #                     "nominal INT, "         # номинал монеты
+    #                     "currency TEXT, "       # Валюта (Р, $, и тд)
+    #                     "year INT, "            # Год выпуска
+    #                     "country TEXT, "        # Страна выпуска
+    #                     "seria TEXT, "          # Серия
+    #                     "model TEXT, "          # Название в серии
+    #                     "img_path TEXT)"        # Относительный путь до изображения монеты
+    #                     )
+    #
+    #         cur.execute(
+    #             """INSERT INTO coins VALUES (0, 10, 'Р', 2015, 'Россия', 'Города воинской славы', 'Елец', (?))""",
+    #             [r'coins_interface\ten_rubles\elec.png'])
+    #         cur.execute(
+    #             """INSERT INTO coins VALUES (1, 10, 'Р', 2013, 'Россия', 'Города воинской славы', 'Курск', (?))""",
+    #             [r'coins_interface\ten_rubles\kursk.png'])
+    #         cur.execute(
+    #             """INSERT INTO coins VALUES (2, 10, 'Р', 2018, 'Россия', 'Города воинской славы', 'Ржев', (?))""",
+    #             [r'coins_interface\ten_rubles\rjev.png'])
+    #         cur.execute(
+    #             """INSERT INTO coins VALUES (0, 10, 'Р', 2015, 'Россия', 'Города воинской славы', 'Елец', (?))""",
+    #             [r'coins_interface\ten_rubles\elec.png'])
+    #         cur.execute(
+    #             """INSERT INTO coins VALUES (1, 10, 'Р', 2013, 'Россия', 'Города воинской славы', 'Курск', (?))""",
+    #             [r'coins_interface\ten_rubles\kursk.png'])
+    #         cur.execute(
+    #             """INSERT INTO coins VALUES (2, 10, 'Р', 2018, 'Россия', 'Города воинской славы', 'Ржев', (?))""",
+    #             [r'coins_interface\ten_rubles\rjev.png'])
+    #         cur.execute(
+    #             """INSERT INTO coins VALUES (0, 10, 'Р', 2015, 'Россия', 'Города воинской славы', 'Елец', (?))""",
+    #             [r'coins_interface\ten_rubles\elec.png'])
+    #         cur.execute(
+    #             """INSERT INTO coins VALUES (1, 10, 'Р', 2013, 'Россия', 'Города воинской славы', 'Курск', (?))""",
+    #             [r'coins_interface\ten_rubles\kursk.png'])
+    #         cur.execute(
+    #             """INSERT INTO coins VALUES (2, 10, 'Р', 2018, 'Россия', 'Города воинской славы', 'Ржев', (?))""",
+    #             [r'coins_interface\ten_rubles\rjev.png'])
+    #         cur.execute(
+    #             """INSERT INTO coins VALUES (0, 10, 'Р', 2015, 'Россия', 'Города воинской славы', 'Елец', (?))""",
+    #             [r'coins_interface\ten_rubles\elec.png'])
+    #         cur.execute(
+    #             """INSERT INTO coins VALUES (1, 10, 'Р', 2013, 'Россия', 'Города воинской славы', 'Курск', (?))""",
+    #             [r'coins_interface\ten_rubles\kursk.png'])
+    #         cur.execute(
+    #             """INSERT INTO coins VALUES (2, 10, 'Р', 2018, 'Россия', 'Города воинской славы', 'Ржев', (?))""",
+    #             [r'coins_interface\ten_rubles\rjev.png'])
+    #         cur.execute(
+    #             """INSERT INTO coins VALUES (0, 10, 'Р', 2015, 'Россия', 'Города воинской славы', 'Елец', (?))""",
+    #             [r'coins_interface\ten_rubles\elec.png'])
+    #         cur.execute(
+    #             """INSERT INTO coins VALUES (1, 10, 'Р', 2013, 'Россия', 'Города воинской славы', 'Курск', (?))""",
+    #             [r'coins_interface\ten_rubles\kursk.png'])
+    #         cur.execute(
+    #             """INSERT INTO coins VALUES (2, 10, 'Р', 2018, 'Россия', 'Города воинской славы', 'Ржев', (?))""",
+    #             [r'coins_interface\ten_rubles\rjev.png'])
+    #         cur.execute(
+    #             """INSERT INTO coins VALUES (0, 10, 'Р', 2015, 'Россия', 'Города воинской славы', 'Елец', (?))""",
+    #             [r'coins_interface\ten_rubles\elec.png'])
+    #         cur.execute(
+    #             """INSERT INTO coins VALUES (1, 10, 'Р', 2013, 'Россия', 'Города воинской славы', 'Курск', (?))""",
+    #             [r'coins_interface\ten_rubles\kursk.png'])
+    #         cur.execute(
+    #             """INSERT INTO coins VALUES (2, 10, 'Р', 2018, 'Россия', 'Города воинской славы', 'Ржев', (?))""",
+    #             [r'coins_interface\ten_rubles\rjev.png'])
 
     def get_coins_info(self):
         """Метод берет информацию о всех монетах в БД"""
@@ -47,3 +91,4 @@ class CoinsData:
                                'img_path': coin[7]})
 
         return coins_info
+
