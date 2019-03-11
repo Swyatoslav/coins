@@ -17,6 +17,9 @@ import ast
 import time
 from money_data import CoinsData
 from kivy.uix.scrollview import ScrollView
+from kivy.uix.textinput import TextInput
+from controls.control_menu import ControlMenu
+
 
 # Константы стартового экрана
 CONST_COINS_IMG = os.path.join(os.getcwd(), 'coins_interface', 'coins.jpg')  # Стопка монет на стартовой
@@ -74,19 +77,18 @@ class CoinsCollection(Screen):
             self.layout.add_widget(coin_box)
 
         # Кнопка возврата на главное меню
-        back_button = Button(text='ДОМОЙ',
-                             on_press=lambda x: set_screen('start_menu'),
-                             size_hint_y=None, height=40)
+        # back_button = Button(text='ДОМОЙ',
+        #                      on_press=lambda x: set_screen('start_menu'),
+        #                      size_hint_y=None, height=40)
+        #
+        # add_button = Button(text=' + ', on_press=lambda x: set_screen('add_coin'),
+        #                     size_hint_y=None, height=40)
 
-        add_button = Button(text=' + ', on_press=lambda x: set_screen('add_coin'),
-                            size_hint_y=None, height=40)
-
-        scroll = ScrollView(size_hint=(1, None), size=(Window.width, Window.height))
+        scroll = ScrollView(size_hint=(1, None), size=(Window.width, Window.height), pos_hint={'top': 0.8})
         scroll.add_widget(self.layout)
         self.add_widget(scroll)
-        menu = BoxLayout(orientation='horizontal', size_hint_y=None)
-        menu.add_widget(back_button)
-        menu.add_widget(add_button)
+        # menu = BoxLayout(orientation='
+        menu = ControlMenu(home_action=lambda x: set_screen('start_menu'))
         self.add_widget(menu)
 
     def on_leave(self):  # Будет вызвана в момент закрытия экрана
