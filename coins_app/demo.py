@@ -5,7 +5,6 @@ from kivy.uix.anchorlayout import AnchorLayout
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.recycleview import RecycleView
 from kivy.uix.gridlayout import GridLayout
-from kivy.core.window import Window
 from kivy.config import ConfigParser, Config
 from kivy.uix.textinput import TextInput
 from kivy.uix.label import Label
@@ -84,11 +83,12 @@ class CoinsCollection(Screen):
         # add_button = Button(text=' + ', on_press=lambda x: set_screen('add_coin'),
         #                     size_hint_y=None, height=40)
 
-        scroll = ScrollView(size_hint=(1, None), size=(Window.width, Window.height), pos_hint={'top': 0.8})
+        scroll = ScrollView(size_hint=(1, None), size=(Window.width, Window.height), pos_hint={'top': 0.93})
         scroll.add_widget(self.layout)
         self.add_widget(scroll)
         # menu = BoxLayout(orientation='
-        menu = ControlMenu(home_action=lambda x: set_screen('start_menu'))
+        menu = ControlMenu(home_action=lambda x: set_screen('start_menu'),
+                           add_action=lambda x: set_screen('add_coin'))
         self.add_widget(menu)
 
     def on_leave(self):  # Будет вызвана в момент закрытия экрана
@@ -133,6 +133,9 @@ class AddCoin(Screen):
         self.layout.add_widget(top_text)
         self.layout.add_widget(back_button)
         self.add_widget(self.layout)
+        menu = ControlMenu(home_action=lambda x: set_screen('coins_collection'),
+                           add_action=lambda x: set_screen('add_coin'))
+        self.add_widget(menu)
 
 #
 #
